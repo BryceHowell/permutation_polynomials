@@ -31,9 +31,11 @@ void recurse_permutation(int * list, int length, int pos) {
    }
    
    
-int main() {
+int main(int argc, char *argv[]) {
     int length=11;
-	OUT=fopen("11permutation.txt","w");
+	if (argc==2) sscanf(argv[1],"%d",&length);
+	printf("Generating permutation polynomials for arithmetic modulo %d.\n",length);
+	OUT=fopen("perm_poly.txt","w");
 	int * list=(int *)malloc(length*sizeof(int));
 	for (int i=0; i<length; i++) list[i]=i;
 	recurse_permutation(list,length,0);
